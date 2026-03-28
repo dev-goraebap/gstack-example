@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+:root {
+  --grid-size: 24px;
+  --grid-color: #c8d8e8;
+  --grid-color-strong: #a8c0d8;
+  --paper-bg: #f8f6f1;
+  --ink: #2c2c2c;
+  --ink-light: #888;
+  --ink-blue: #4a6fa5;
+  --margin-red: #e8a0a0;
+  --complete-green: #6aaa6a;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Courier New', 'Consolas', monospace;
+  background-color: var(--paper-bg);
+  color: var(--ink);
+  background-image:
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px),
+    linear-gradient(var(--grid-color-strong) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color-strong) 1px, transparent 1px);
+  background-size:
+    var(--grid-size) var(--grid-size),
+    var(--grid-size) var(--grid-size),
+    calc(var(--grid-size) * 4) calc(var(--grid-size) * 4),
+    calc(var(--grid-size) * 4) calc(var(--grid-size) * 4);
+  min-height: 100vh;
+}
