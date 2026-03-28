@@ -26,12 +26,12 @@ export default function ViewNav({
       className="flex items-baseline"
       style={{
         gap: 'calc(var(--grid-size) * 2)',
-        padding: 'var(--grid-size) 0',
-        marginBottom: 'var(--grid-size)',
-        borderBottom: '1px solid var(--grid-color-strong)',
+        padding: 'calc(var(--grid-size) * 1.25) 0',
+        marginBottom: 'calc(var(--grid-size) * 1.5)',
+        borderBottom: '1px solid rgba(168, 192, 216, 0.3)',
       }}
     >
-      <div className="text-xl font-bold tracking-wide">{dateTitle}</div>
+      <div className="text-[22px] font-bold tracking-wide">{dateTitle}</div>
       <div className="flex" style={{ gap: 'var(--grid-size)' }}>
         {TABS.map(({ mode, label }) => (
           <button

@@ -3,11 +3,12 @@ import type { ReactNode } from 'react';
 export default function GridPaper({ children }: { children: ReactNode }) {
   return (
     <div
-      className="max-w-[720px] min-h-screen"
       style={{
-        padding: 'var(--grid-size)',
+        maxWidth: '780px',
+        minHeight: '100vh',
+        margin: '0 auto',
+        padding: 'calc(var(--grid-size) * 1.5) calc(var(--grid-size) * 2)',
         borderLeft: '2px solid var(--margin-red)',
-        marginLeft: 'calc(var(--grid-size) * 3)',
       }}
     >
       {children}

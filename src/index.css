@@ -2,11 +2,11 @@
 
 :root {
   --grid-size: 24px;
-  --grid-color: #c8d8e8;
-  --grid-color-strong: #a8c0d8;
+  --grid-color: rgba(200, 216, 232, 0.4);
+  --grid-color-strong: rgba(168, 192, 216, 0.35);
   --paper-bg: #f8f6f1;
   --ink: #2c2c2c;
-  --ink-light: #888;
+  --ink-light: #999;
   --ink-blue: #4a6fa5;
   --margin-red: #e8a0a0;
   --complete-green: #6aaa6a;

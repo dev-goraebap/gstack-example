@@ -58,22 +58,26 @@ export default function BulletItem({ bullet, onUpdate, onDelete }: BulletItemPro
   const isCompleted = bullet.type === 'task' && bullet.state === 'completed';
   const isMigrated = bullet.type === 'task' && bullet.state === 'migrated';
 
+  // Stable rotation based on id hash, not Math.random()
+  const rotation = bullet.id.charCodeAt(0) % 2 === 0 ? -0.3 : 0.2;
+
   return (
     <div
       className="flex items-center"
       style={{
-        height: 'var(--grid-size)',
-        marginBottom: '2px',
+        minHeight: 'calc(var(--grid-size) * 1.25)',
+        marginBottom: '3px',
         paddingLeft: '4px',
       }}
     >
       <button
         onClick={handleSymbolClick}
-        className="flex items-center justify-center text-sm bg-transparent border-none font-[inherit]"
+        className="flex items-center justify-center bg-transparent border-none font-[inherit]"
         style={{
           width: 'var(--grid-size)',
           height: 'var(--grid-size)',
           flexShrink: 0,
+          fontSize: '15px',
           cursor: bullet.type === 'task' ? 'pointer' : 'default',
           color: isCompleted ? 'var(--complete-green)' : isMigrated ? 'var(--ink-blue)' : 'var(--ink)',
           fontWeight: isCompleted ? 'bold' : 'normal',
@@ -99,10 +103,11 @@ export default function BulletItem({ bullet, onUpdate, onDelete }: BulletItemPro
           onChange={(e) => setEditText(e.target.value)}
           onBlur={handleBlur}
           onKeyDown={handleKeyDown}
-          className="bg-transparent border-none outline-none font-[inherit] text-sm"
+          className="bg-transparent border-none outline-none font-[inherit]"
           style={{
-            lineHeight: 'var(--grid-size)',
-            paddingLeft: '8px',
+            fontSize: '15px',
+            lineHeight: '1.6',
+            paddingLeft: '10px',
             color: 'var(--ink)',
             width: '100%',
           }}
@@ -110,14 +115,15 @@ export default function BulletItem({ bullet, onUpdate, onDelete }: BulletItemPro
       ) : (
         <span
           onClick={handleTextClick}
-          className="text-sm cursor-text"
+          className="cursor-text"
           style={{
-            lineHeight: 'var(--grid-size)',
-            paddingLeft: '8px',
+            fontSize: '15px',
+            lineHeight: '1.6',
+            paddingLeft: '10px',
             textDecoration: isCompleted ? 'line-through' : 'none',
             color: isCompleted || isMigrated ? 'var(--ink-light)' : 'var(--ink)',
             fontStyle: isMigrated ? 'italic' : 'normal',
-            transform: `rotate(${Math.random() > 0.5 ? -0.3 : 0.2}deg)`,
+            transform: `rotate(${rotation}deg)`,
           }}
         >
           {bullet.text}

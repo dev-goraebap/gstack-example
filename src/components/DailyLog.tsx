@@ -43,12 +43,12 @@ export default function DailyLog({ date, bullets, onAdd, onUpdate, onDelete }: D
   return (
     <div>
       {grouped.map(({ type, label, items }) => (
-        <div key={type} style={{ marginBottom: 'calc(var(--grid-size) * 2)' }}>
+        <div key={type} style={{ marginBottom: 'calc(var(--grid-size) * 2.5)' }}>
           <div
-            className="text-[11px] uppercase tracking-[3px]"
+            className="text-[12px] uppercase tracking-[3px]"
             style={{
               color: 'var(--ink-light)',
-              marginBottom: 'var(--grid-size)',
+              marginBottom: 'calc(var(--grid-size) * 0.75)',
             }}
           >
             {label}
