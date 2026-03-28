@@ -23,16 +23,20 @@ export default function ViewNav({
 }: ViewNavProps) {
   return (
     <div
-      className="flex items-baseline"
       style={{
-        gap: 'calc(var(--grid-size) * 2)',
         padding: 'calc(var(--grid-size) * 1.25) 0',
         marginBottom: 'calc(var(--grid-size) * 1.5)',
         borderBottom: '1px solid rgba(168, 192, 216, 0.3)',
       }}
     >
-      <div className="text-[22px] font-bold tracking-wide">{dateTitle}</div>
-      <div className="flex" style={{ gap: 'var(--grid-size)' }}>
+      <div className="flex items-center justify-between" style={{ marginBottom: '8px' }}>
+        <div className="text-[22px] font-bold tracking-wide whitespace-nowrap">{dateTitle}</div>
+        <div className="flex gap-2">
+          <NavButton onClick={onPrev}>&larr;</NavButton>
+          <NavButton onClick={onNext}>&rarr;</NavButton>
+        </div>
+      </div>
+      <div className="flex" style={{ gap: 'calc(var(--grid-size) * 0.75)' }}>
         {TABS.map(({ mode, label }) => (
           <button
             key={mode}
@@ -47,10 +51,6 @@ export default function ViewNav({
             {label}
           </button>
         ))}
-      </div>
-      <div className="flex gap-2 ml-auto">
-        <NavButton onClick={onPrev}>&larr;</NavButton>
-        <NavButton onClick={onNext}>&rarr;</NavButton>
       </div>
     </div>
   );
